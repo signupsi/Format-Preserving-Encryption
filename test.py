@@ -339,6 +339,30 @@ def main():
     
     print('Finish! %d error!' % countErr)
 
+    print('-------------------------\nFF31 test: ')
+    for index, test in enumerate(ff31):
+        radix = test[0]
+        key = test[1]
+        tweak = test[2]
+        plain = test[3]
+        cipher = test[4]
+        p = subprocess.Popen(['./example', key, tweak, str(radix), plain], stdin = subprocess.PIPE, stdout = subprocess.PIPE)
+        output = p.communicate()[0]
+        results = regexp.findall(output.decode('utf-8'))[1]
+        p.wait()
+    
+        print('case #%d:' % index)
+        print('plaintext: ' + plain)
+        print('ciphertext: ' + results)
+        if results != cipher:
+            print('Wrong!')
+            countErr += 1
+        else:
+            print('Right!')
+    
+    print('Finish! %d error!' % countErr)
+
+
 if __name__ == '__main__':
     main()
 
