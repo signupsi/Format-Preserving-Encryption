@@ -295,7 +295,7 @@ def main():
     
     countErr = 0
     
-    print('FF1 test: ')
+    print('-------------------------\nFF1 test: ')
     for index, test in enumerate(ff1):
         radix = test[0]
         key = test[1]
