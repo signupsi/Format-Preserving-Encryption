@@ -1,6 +1,7 @@
 # FPE - Format Preserving Encryption Implementation in C
 
-An implementation of the NIST approved Format Preserving Encryption (FPE) FF1 and FF3 algorithms in C.
+
+An implementation of the NIST approved Format Preserving Encryption (FPE) FF1, FF3  and FF3-1 algorithms in C.
 
 [NIST Recommendation SP 800-38G](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-38G.pdf)
 
