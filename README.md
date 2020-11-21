@@ -99,7 +99,7 @@ void FPE_unset_ff31_key(FPE_KEY *key);
 | userKey | encryption key (128 bit, 192 bits or 256 bits), represented as a c string |
 | bits    | length of userKey (128, 192 or 256)      |
 | tweak   | tweak, represented as a c string (it must be 56 bytes) |
-| radix   | number of characters in the given alphabet,  if the key is used within an IETF protocol; it must be in [2, 2^16] |
+| radix   | number of characters in the given alphabet,  if the key is used within an IETF protocol; it must be in [2, 2^16] // maxRadix   = 65536 // 2^16 |
 | key     | FPE_KEY structure                        |
 
 6. encrypt or decrypt text using ff31 algorithm
