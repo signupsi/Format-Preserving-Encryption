@@ -129,9 +129,10 @@ Based on searching GitHub and the Internet, there are no known reference impleme
 
 An [existing C++ implementation](https://github.com/randombit/botan/tree/753b4c2d5301574d3c9390b79aa275a49809e6c8/src/lib/misc/fpe_fe1) based on the FFX mode, but the implementation differs from the NIST recommendation. 
 
-Also, another [implementation in Go](https://github.com/capitalone/fpe) is great. I have learned a lot from it.
+Also, another [implementation in Go](https://github.com/capitalone/fpe) is great. 
+
+Rust FPE Implementation  https://github.com/str4d/fpe
 
 ## TODO
 
-1. Make the API simpler
-2. More effective implementation
+1. Create RUST Wrapper
