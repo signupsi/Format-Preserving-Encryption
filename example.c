@@ -28,7 +28,7 @@ void map_chars(unsigned char str[], unsigned int result[])
             result[i] = str[i] - 'a' + 10;
         else
             result[i] = str[i] - '0';
-}
+} 
 
 void inverse_map_chars(unsigned result[], unsigned char str[], int len)
 {
