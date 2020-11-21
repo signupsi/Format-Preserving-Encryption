@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < xlen; ++i)
         assert(x[i] < radix);
 
-    FPE_KEY ff1, ff3;
+    FPE_KEY ff1, ff3, ff31;
 
     printf("key:");
     for (int i = 0; i < klen; ++i)    printf(" %02x", k[i]);
@@ -77,6 +77,7 @@ int main(int argc, char *argv[])
 
     FPE_set_ff1_key(k, klen * 8, t, tlen, radix, &ff1);
     FPE_set_ff3_key(k, klen * 8, t, radix, &ff3);
+    FPE_set_ff31_key(k, klen * 8, t, radix, &ff31);
 
     printf("after map: ");
     for (int i = 0; i < xlen; ++i)    printf(" %d", x[i]);
@@ -116,8 +117,29 @@ int main(int argc, char *argv[])
     for (int i = 0; i < xlen; ++i)    printf(" %d", x[i]);
     printf("\n");
 
+    
+    printf("========== FF31 ==========\n");
+    FPE_ff31_encrypt(x, y, xlen, &ff31, FPE_ENCRYPT);
+
+    printf("ciphertext(numeral string):");
+    for (int i = 0; i < xlen; ++i)    printf(" %d", y[i]);
+    printf("\n");
+
+    inverse_map_chars(y, result, xlen);
+    printf("ciphertext: %s\n\n", result);
+
+    memset(x, 0, sizeof(x));
+    FPE_ff31_encrypt(y, x, xlen, &ff31, FPE_DECRYPT);
+
+    printf("plaintext:");
+    for (int i = 0; i < xlen; ++i)    printf(" %d", x[i]);
+    printf("\n");
+
+
+    
     FPE_unset_ff1_key(&ff1);
     FPE_unset_ff3_key(&ff3);
+    FPE_unset_ff31_key(&ff31);
 
     return 0;
 }
