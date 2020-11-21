@@ -1,4 +1,4 @@
-# FPE - Format Preserving Encryption Implementation in C
+# FPE - Format Preserving Encryption Implementation in C via FF3-1
 
 
 An implementation of the NIST approved Format Preserving Encryption (FPE) FF1, FF3  and FF3-1 algorithms in C.
