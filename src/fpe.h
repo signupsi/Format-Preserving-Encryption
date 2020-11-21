@@ -13,6 +13,7 @@ extern "C" {
 # define FF1_ROUNDS 10
 # define FF3_ROUNDS 8
 # define FF3_TWEAK_SIZE 8
+# define FF31_TWEAK_SIZE 8
 
 struct fpe_key_st {
     unsigned int radix;
@@ -36,6 +37,13 @@ int FPE_set_ff3_key(const unsigned char *userKey, const int bits, const unsigned
 void FPE_unset_ff3_key(FPE_KEY *key);
 
 void FPE_ff3_encrypt(unsigned int *in, unsigned int *out, unsigned int inlen, FPE_KEY *key, const int enc);
+
+/*** FF31 ***/
+int FPE_set_ff31_key(const unsigned char *userKey, const int bits, const unsigned char *tweak, const unsigned int radix, FPE_KEY *key);
+
+void FPE_unset_ff31_key(FPE_KEY *key);
+
+void FPE_ff31_encrypt(unsigned int *in, unsigned int *out, unsigned int inlen, FPE_KEY *key, const int enc);
 
 # ifdef __cplusplus
 }
