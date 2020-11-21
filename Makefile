@@ -4,7 +4,7 @@ SO_LINKS = -lm -lcrypto
 LIB = libfpe.a libfpe.so
 EXAMPLE_SRC = example.c
 EXAMPLE_EXE = example
-OBJS = src/ff1.o src/ff3.o src/fpe_locl.o
+OBJS = src/ff1.o src/ff3.o src/ff31.o src/fpe_locl.o
 
 all: $(LIB) $(EXAMPLE_EXE)
 
@@ -21,6 +21,9 @@ src/ff1.o: src/ff1.c
 
 src/ff3.o: src/ff3.c
 	cc $(CFLAGS) -c src/ff3.c -o $@
+
+src/ff31.o: src/ff31.c
+	cc $(CFLAGS) -c src/ff31.c -o $@
 
 src/fpe_locl.o: src/fpe_locl.c
 	cc $(CFLAGS) -c src/fpe_locl.c -o $@
