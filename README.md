@@ -85,6 +85,38 @@ void FPE_ff3_encrypt(unsigned int *in, unsigned int *out, unsigned int inlen, FP
 | key   | FPE_KEY structure that have been set with key and tweak |
 | enc   | can be two value: FPE_ENCRYPT for encrypt and FPE_DECRYPT for decrypt |
 
+
+5. Set and unset ff31 key and tweak
+
+```c++
+int FPE_set_ff31_key(const unsigned char *userKey, const int bits, const unsigned char *tweak, const unsigned int radix, FPE_KEY *key);
+
+void FPE_unset_ff31_key(FPE_KEY *key);
+```
+
+| name    | description                              |
+| ------- | ---------------------------------------- |
+| userKey | encryption key (128 bit, 192 bits or 256 bits), represented as a c string |
+| bits    | length of userKey (128, 192 or 256)      |
+| tweak   | tweak, represented as a c string (it must be 64 bytes) |
+| radix   | number of characters in the given alphabet, it must be in [2, 2^16] |
+| key     | FPE_KEY structure                        |
+
+6. encrypt or decrypt text using ff31 algorithm
+
+```c++
+void FPE_ff31_encrypt(unsigned int *in, unsigned int *out, unsigned int inlen, FPE_KEY *key, const int enc);
+```
+
+| name  | description                              |
+| ----- | ---------------------------------------- |
+| in    | numeral string to be encrypted, represented as an array of integers |
+| out   | encrypted numeral string, represented as an array of integers |
+| inlen | the length of input numeral string (in)  |
+| key   | FPE_KEY structure that have been set with key and tweak |
+| enc   | can be two value: FPE_ENCRYPT for encrypt and FPE_DECRYPT for decrypt |
+
+
 The example code is [example.c](https://github.com/0NG/Format-Preserving-Encryption/blob/master/example.c). Also, there are some official [test vectors](http://csrc.nist.gov/groups/ST/toolkit/examples.html) for both FF1 and FF3 provided by NIST. You can run [test.py](https://github.com/0NG/Format-Preserving-Encryption/blob/master/test.py) with python 3.x.
 
 To compile the example.c with the fpe library, just run *make example* or *make*.
